@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "epivision.vscode-file-header",
+        "ms-python.vscode-pylance",
+        "tomiturtiainen.rf-intellisense",
+        "vscode-icons-team.vscode-icons",
+        "ms-python.python"
+    ]
+}
