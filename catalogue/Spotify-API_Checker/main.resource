@@ -26,3 +26,9 @@ End session in Spotify API
     [Documentation]    Keyword to init session in Spotify API
     [Tags]    Keyword    logout
     Delete All Sessions
+
+Refresh session in Spotify API
+    [Documentation]    Keyword to refresh session in Spotify API
+    [Tags]    Keyword    refresh session
+    Delete All Sessions
+    Init session in Spotify API
