@@ -18,7 +18,9 @@ Init session in Spotify API
     [Documentation]    Keyword to init session in Spotify API
     [Tags]    Keyword    login
     ${token} =    tools.getAccesToken    ${clientId}    ${clientSecret}
-    &{headersData} =    Create Dictionary    Authorization    Bearer ${token}    Content-Type    application/json
+    ${passed} =    Run Keyword And Return Status    Variable Should Not Exist    ${authorizeToken}
+    ${authorizeToken} =    Set Variable If    ${passed}    ${token}    ${authorizeToken}    
+    &{headersData} =    Create Dictionary    Authorization    Bearer ${authorizeToken}    Content-Type    application/json
     &{jsonData} =    Create Dictionary    grant_type    client_credentials
     Create Session    ${sessionName}    ${baseURL}    verify=false    headers=${headersData}
 
