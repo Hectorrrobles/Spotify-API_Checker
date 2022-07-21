@@ -25,7 +25,7 @@ Suite Teardown    End session in Spotify API
 &{withoutPublicTypePlaylistData} =    name=Without public type Playlist    description=Playlist description    collaborative=False
 &{withoutCollaborativePlaylistData} =    name=Without Collaborative Playlist    description=Playlist description    public=True
 
-${invalidToke} =        QQBhdS5S5EyKhQWuCGZPnBp-T6kh6xi3RErJMPlPBqmYycsXSuzBBAs4Zy0ryGjE2GppiSkMhHU1tttOi_wrfXTw7lVx5XHBSjBOWA75YLX4BGlMiOI
+
 
 *** Keywords ***
 Init URL to post a playlists
@@ -43,12 +43,6 @@ Create a playlist with given data
     ${response} =    POST On Session    ${sessionName}    ${createPlaylistsURL}    json=${givenData}    expected_status=any
     Set Test Variable    ${response}
 
-The response code is the given code
-    [Documentation]    Keywords to check if the reponse is the given code
-    [Tags]    Keyword    playlist
-    [Arguments]    ${code}
-    Should Contain    "${response}"    ${code}
-
 The playlist exits
     [Documentation]    Keywords to check if the public playlist exists
     [Tags]    Keyword    playlist
@@ -60,14 +54,6 @@ The playlist exits
     Should Contain    "${responsePlaylist.json()}[description]"    ${oriPlaylistData}[description]
     Should Contain    "${responsePlaylist.json()}[collaborative]"    ${oriPlaylistData}[collaborative]
     Should Contain    "${responsePlaylist.json()}[public]"    ${oriPlaylistData}[public]
-
-Invalid token in session
-    [Documentation]    Keywords to set invalid token in new session
-    [Tags]    Keyword    playlist
-    Delete All Sessions    
-    &{headersData} =    Create Dictionary    Authorization    Bearer ${invalidToke}    Content-Type    application/json
-    &{jsonData} =    Create Dictionary    grant_type    client_credentials
-    Create Session    ${sessionName}    ${baseURL}    verify=false    headers=${headersData}
 
 *** Test Cases ***
 Create a public playlist
