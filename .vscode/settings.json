@@ -1,0 +1,18 @@
+{
+    "powerHeader.autoInsert.languages": [
+        "plaintext",
+        "Log",
+        "markdown"
+    ],
+    "powerHeader.commentMode": "block",
+    "powerHeader.autoInsert.allow": "all",
+    "powerHeader.update.enable": "disable",
+    "powerHeader.logLevel": "warn",
+    "powerHeader.template": "file://$WORKSPACE_FOLDER/resources/copyright",
+    "powerHeader.update.content": [],
+    "powerHeader.variables": [],
+    "[robot]":{
+        "powerHeader.newLines": 1,
+        "powerHeader.commentMode": "line"
+    }
+}
