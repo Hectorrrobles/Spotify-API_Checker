@@ -35,14 +35,14 @@ Create your virtual environment.
 python -m venv .env
 ```
 
-Install the needs library from **requirements.txt**
-```bash
-pip install -r requirements.txt
-```
-
 Init your virtual environment
 ```bash
 source .env/Scripts/activate
+```
+
+Install the needs library from **requirements.txt**
+```bash
+pip install -r requirements.txt
 ```
 
 ### Execute with Authorization token
