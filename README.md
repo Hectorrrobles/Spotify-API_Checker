@@ -65,6 +65,18 @@ This is the option when you can't obtain an **authorize Token**. This execution 
 python -m robot --pythonpath ./src/ --outputdir ./testExecutionResults/ -v clientId:{put here your clientId} -v clientSecret:{put here your clientSecret} -i GET catalogue/Spotify-API_Checker/
 ```
 
+### Execute pytest with Authorization token
+This is the option when you want to use only pytest for the testing process with authorization token. Because you need access user information for **POST test suite**.can execute **GET test suite**.
+```bash
+pytest -s pyTest/test_get_and_artist.py --clientId {put here your clientId} --clientSecret {put here your clientSecret} --authorizeToken {put here your authorize token} 
+```
+
+### Execute pytest with client credentials
+This is the option when you want to use only pytest for the testing process. This execution doesn't have access user information and you only can execute **GET test suite**.
+```bash
+pytest -s pyTest/test_get_and_artist.py --clientId {put here your clientId} --clientSecret {put here your clientSecret}
+```
+
 ### Show result
 
 After the execution you can see all the process in the console, but you can open **testExecutionResults/log.html** and **testExecutionResults/resport.html**.
